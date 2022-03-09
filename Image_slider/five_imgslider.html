@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo1</title>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="put imp words from ur webpage" >
+        <meta name="author" content="put name of author">
+        <meta name="description" content="put short descr">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            div{
+                justify-content: center;
+            }
+            img {
+                display:none;
+                width:500px;
+                height: 500px;
+                justify-content: center;
+                border-radius: 10px;
+                }
+        </style>
+        
+    </head>
+    <body>
+        <div>
+            <img src="./images/Green-Environment.jpg" alt="" class="Slide">
+            <img src="./images/lotus-flower-images.jpg" alt="" class="Slide">
+            <img src="./images/OIP2U031SQ3.jpg" alt="" class="Slide">
+            <img src="./images/OIPEHD8KPES.jpg" alt="" class="Slide">
+            <img src="./images/R.jpg" alt="" class="Slide">
+        </div>
+
+
+
+
+
+
+
+
+
+        <script>
+            // const images = document.querySelectorAll("img");
+            // let i = 0;
+            // images[i].style.display = 'block';
+            // setInterval(function(){
+            //     images[i].style.display = 'inline-block';
+            //     i++;
+            //     }, 2000);
+            const images = document.querySelectorAll("img"); 
+let i = 0;
+setInterval(function(){ 
+  images.forEach( (img, i) => {
+    img.style.display = 'none';
+  })
+  if( i == images.length) {
+    i = 0; 
+  }
+  
+  images[i].style.display = 'inline-block';
+  
+  i++;
+}, 3000);
+        </script>
+    </body>
+</html>

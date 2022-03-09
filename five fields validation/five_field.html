@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo1</title>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="put imp words from ur webpage" >
+        <meta name="author" content="put name of author">
+        <meta name="description" content="put short descr">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+           
+            form{
+                margin-left: 40%;
+                margin-top: 10%;
+               
+            }
+        </style>
+    </head>
+    <body>
+        <form action="success.html" novalidate >
+            <!-- onsubmit="return validateform()"  -->
+            
+            <h2>Enter your details</h2>
+            <div>
+           First Name: <input type="text" placeholder="Enter your first name" id="fname" onblur="validate()"/><br><br>
+           Last Name: <input type="text" placeholder="Enter your last name" id="lname" onblur="validate1()"/><br><br>
+            Choose Your Gender: <input type="radio" id="m" name="gender" /> MALE
+            <input type="radio" name="gender" id="f"  /> FEMALE <br><br>
+            Enter Email: <input type="text" placeholder=" Enter your Email id " id="ename" onblur="validate2()"/><br><br>
+
+            Mobile no: <input type="text" placeholder=" Enter your mobile no " pattern="[0-9]*" 
+            id="mobile" onblur="validate3()"/><br><br>
+
+            <button type="submit" value="Submit" onclick="  validateform()" >Submit</button>
+            <!-- onclick="vali()" -->
+            </div>
+        </form>
+
+        <script>
+            function validate(){
+                var Firstname=document.getElementById("fname").value;
+                var regname=/^[a-zA-Z]{4,30}$/;
+                if(Firstname == ""){
+                    alert("please enter first name");
+                    // Firstname.focus();
+                    return false;
+                }
+                else if(!regname.test(Firstname)){
+                    alert("Name should have only Alphabets should have min 4 and max 30 letters");
+                    Firstname.style.border="2px solid red";
+                    // Firstname.focus();
+                    return false;
+                }
+                else{
+                //    Firstname.style.background="green";
+                    return true;
+                }
+            }
+            function validate1(){
+                var lastname=document.getElementById("lname").value;
+                var regname=/^[a-zA-Z]{4,30}$/;
+                if(lastname == ""){
+                    alert("please enter last name");
+                    // lastname.focus();
+                    return false;
+                }
+                else if(!regname.test(lastname)){
+                    alert("Last Name should have only Alphabets and should have min 4 and max 30 letters ");
+                    // lastname.focus();
+                    return false;
+                }
+                else{
+                    return true;
+                }
+                }
+                function validate2(){
+                    var Ename=document.getElementById("ename").value;
+                    var regEname= /^[A-Za-z0-9+_.-]+@(.+)$/;/*/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]$/*/
+                    if(Ename==""){
+                        alert("Please enter your email Id");
+                        // Ename.focus();
+                        return false;
+                    }
+                    else if(!regEname.test(Ename)){
+                        alert("Please put a vaild Email address");
+                        // Ename.focus();
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
+                }
+                function validate3(){
+                    var Mobileno=document.getElementById("mobile").value;
+                    let border1="2px solid red";
+                    var regMobile=/^[6-9][0-9]{9}$/;
+                    if(Mobileno==""){
+                        alert("Please enter mobile number");
+                        // Mobileno.focus();
+                        return false;
+                    }
+                    else if(!regMobile.test(Mobileno)){
+                        alert("please enter 10 digit valid mob no ");
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
+                }
+
+            function vali(){
+                confirm("Do you want to submit??");
+                alert("Your details submitted successfully");
+            }
+        //    console.log(onsubmit);
+            function validateform(){
+               let fun1=validate();
+               let fun2=validate1();
+               let fun3=validate2();
+               let fun4=validate3();
+               return fun1 && fun2 && fun3 && fun4;
+           }
+       
+        </script>
+    </body>
+</html>

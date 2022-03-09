@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fetch Api</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    </head>
+    <body>
+        <h2>Latest Post</h2><br><br>
+        <button onclick="hide_show()">Get Posts</button>
+        <table id="data" class="table table-striped">
+
+        </table>
+
+
+        <script>
+           function hide_show(){
+             const URL="https://jsonplaceholder.typicode.com/posts";
+            fetch(URL)
+            .then(res=> res.json())
+            .then(json=>{
+               let li =`<tr><th>Sr. No</th> <th>Title</th> <th>Tbody</th></tr>`; 
+                json.forEach(data => {
+                  li+=`<tr>
+                  <td> ${data.id} </td>
+                  <td> ${data.title} </td>
+                  <td> ${data.body} </td>`  
+                });
+                document.getElementById("data").innerHTML = li;
+            });
+        }
+        
+        </script>
+    </body>
+</html>
